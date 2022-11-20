@@ -19,8 +19,14 @@ db.authenticate()
     console.log('connected to the database'); 
 })
 
+const init = async () => {
+   
+    await db.sync({force: true})
 
-const PORT = 3000;
-app.listen(PORT, ()=> {
-    console.log(`App.js listening in port ${PORT}`)
-});
+    const PORT = 3000;
+    app.listen(PORT, ()=> {
+        console.log(`App.js listening in port ${PORT}`)
+    });
+}
+
+init();
