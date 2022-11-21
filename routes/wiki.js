@@ -15,22 +15,22 @@ router.post("/", async (req, res, next) => {
     let title = req.body.title;
     let content = req.body.content;
 
+    // res.json(form)
+
     console.log("form:", form)
     console.log("title:", title)
     console.log("content:", content)
-    res.json(form)
 
     try {
         const page = await Page.create({
             title: title,
-            content: content
+            content: content,
         })
-        res.redirect('/')
-    }
 
-    catch (error) {
-        next(error)
-    }
+        console.log("page:", page)
+
+        res.redirect('/')
+    } catch (error) { next(error) }
 });
 
 router.get("/add", (req, res, next) => {
@@ -38,3 +38,5 @@ router.get("/add", (req, res, next) => {
 });
 
 module.exports = router 
+
+
