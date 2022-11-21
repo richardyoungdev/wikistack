@@ -7,12 +7,12 @@ module.exports = () => layout(html`
   <form method="POST" action="/wiki/">
     <div>
       AUTHOR NAME 
-      <input placeholder="type author name"/>
+      <input id="author" name="author" placeholder="type author name" type="text" class="form-control"/>
     </div>
 
     <div>
       AUTHOR EMAIL
-      <input placeholder="type author email"/>
+      <input id="email" name="email" placeholder="type author email" type="text" class="form-control"/>
     </div>
 
     <div class="form-group">
@@ -29,7 +29,7 @@ module.exports = () => layout(html`
     
     <div>
       PAGE STATUS
-      <input type="text" class="form-control"/>
+      <input id="status" name="status" type="text" class="form-control"/>
     </div>
 
     <div class="col-sm-offset-2 col-sm-10">

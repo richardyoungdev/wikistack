@@ -48,8 +48,8 @@ const User = db.define(`user`, {
 });
 
 
-
-
+// Associating Pages with Users
+Page.belongsTo(User, { as: 'author' });
 
 
 

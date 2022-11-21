@@ -13,6 +13,6 @@ module.exports = (pages) => layout(html`
     <ul>
       ${pages.map(page => html`
         <h3><a href= "/wiki/${page.slug}">${page.title}</a> </h3>
-        <p>${page.content}</p>`)}
+        <p>Content: ${page.content}</p>`)}
     </ul>
   </ul>`);
