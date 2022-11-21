@@ -11,6 +11,7 @@ const Page = db.define(`page`, {
     },
     slug: {
         type: Sequelize.STRING,
+        allowNull: false
     },
     content: {
         type: Sequelize.TEXT,
