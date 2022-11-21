@@ -49,6 +49,7 @@ const User = db.define(`user`, {
 
 
 // Associating Pages with Users
+// adds methods to our Page model and create a foreign key on our Page 'authorId'
 Page.belongsTo(User, { as: 'author' });
 
 

@@ -1,0 +1,35 @@
+const express = require('express');
+const router = express.Router();
+const { Page, User, } = require('../models')
+const { userList, userPages } = require('../views')
+
+// get /users
+router.get('/', async (req,res,next) => {
+    try {
+        const users = await User.findAll()
+        console.log(users)
+        res.send(userList(users))
+    }
+    catch(error) {
+        next(error)
+    }
+})
+
+// get /users/id
+// router.get("/:userId", async (req, res, next) => {
+//     try {
+//       const user = await User.findByPk(req.params.userId);
+//       const pages = await Page.findAll({
+//         where: {
+//           authorId: req.params.userId
+//         }
+//       });
+  
+//       res.send(userPages(user, pages));
+//     //   console.log(req.params)
+//       console.log(req.params.userId)
+//     } catch (error) { next(error) }
+//   });
+
+
+module.exports = router

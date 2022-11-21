@@ -18,6 +18,7 @@ app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({extended: false}))
 app.use('/wiki', wikiRouter)
+app.use('/users', usersRouter)
 
 
 app.get('/', (req, res) => {
