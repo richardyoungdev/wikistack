@@ -16,20 +16,18 @@ router.get('/', async (req,res,next) => {
 })
 
 // get /users/id
-// router.get("/:userId", async (req, res, next) => {
-//     try {
-//       const user = await User.findByPk(req.params.userId);
-//       const pages = await Page.findAll({
-//         where: {
-//           authorId: req.params.userId
-//         }
-//       });
-  
-//       res.send(userPages(user, pages));
-//     //   console.log(req.params)
-//       console.log(req.params.userId)
-//     } catch (error) { next(error) }
-//   });
+router.get("/:userId", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.userId);
+    const pages = await Page.findAll({
+      where: {
+        authorId: req.params.userId
+      }
+    });
+
+    res.send(userPages(user, pages));
+  } catch (error) { next(error) }
+});
 
 
 module.exports = router
