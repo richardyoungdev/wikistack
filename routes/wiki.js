@@ -30,7 +30,9 @@ router.post("/", async (req, res, next) => {
         console.log("page:", page)
 
         res.redirect('/')
-    } catch (error) { next(error) }
+    } catch (error) { 
+        next(error) 
+    }
 });
 
 router.get("/add", (req, res, next) => {
