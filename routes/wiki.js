@@ -70,11 +70,14 @@ router.get('/:slug', async (req, res, next) => {
         // res.json(page);
         console.log("page", page)
 
+        const author = await page.getAuthor()
+        console.log("author ---->", author)
+
         // use wikipage's function
         // res.send(wikiPage(page))
         // res.send(layout())
         // wikipage(page);
-        res.send(wikiPage(page));
+        res.send(wikiPage(page, author));
 
     } catch (error) {
         next(error)
