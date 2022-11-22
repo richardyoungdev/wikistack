@@ -1,4 +1,5 @@
 const express = require('express');
+const app = express()
 const router = express.Router();
 const { Page, User, } = require('../models')
 const { addPage } = require('../views/')
@@ -83,6 +84,31 @@ router.get('/:slug', async (req, res, next) => {
         next(error)
     }
 });
+
+
+// put at end of pipeline for customized error
+// when ever a catch catches an error, it ends up here below:
+// Error handling middleware is 4 parameters
+// router.use((error, req, res, next) => {
+//     console.log("hi")
+//     console.log(error) // tracking error
+//     res.status(500);
+//     res.send(`
+//         <!DOCTYPE html>
+//         <html lang="en">
+//         <head>
+//             <meta charset="UTF-8">
+//             <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//             <title>Oops</title>
+//         </head>
+//         <body>
+//             <h1>Oop! :(</h1>
+//             <img src="404img.jpeg" alt="" srcset="">
+//         </body>
+//         </html>
+//     `)
+// });
 
 module.exports = router
 

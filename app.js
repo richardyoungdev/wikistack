@@ -25,6 +25,13 @@ app.get('/', (req, res) => {
     res.redirect('/wiki')
 })
 
+// put at end of pipeline for customized error
+// when ever a catch catches an error, it ends up here below:
+app.use((error, req, res, next) => {
+    console.log("hi")
+    res.send("lol")
+});
+
 
 
 const init = async () => {
